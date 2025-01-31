@@ -3,6 +3,7 @@ package controller.admin.placeOrder.placeOrderBasicWindow;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import controller.admin.orderManagement.orderManagementBasicWindow.OrderManagementControll;
 import controller.admin.placeOrder.PlaceOrderWindowController;
 import controller.admin.stockManagement.stockManagementBasicWindow.StockManagementControll;
 import javafx.collections.FXCollections;
@@ -141,6 +142,12 @@ public class PlaceOrderBasicWindowController implements Initializable {
     @FXML
     private TableView tblCart;
 
+    @FXML
+    private Label lblOrderId;
+
+    @FXML
+    private Label lblOrderIdTitle;
+
 
     @FXML
     void btnAddCustomerOnAction(ActionEvent event) {
@@ -152,18 +159,20 @@ public class PlaceOrderBasicWindowController implements Initializable {
 
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
-        colCartItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
-        colCartItemName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colCartItemSize.setCellValueFactory(new PropertyValueFactory<>("size"));
-        colCartItemBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
-        colCartItemQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        colCartItemDiscount.setCellValueFactory(new PropertyValueFactory<>("discount"));
-        colCartUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        colCartSubTotal.setCellValueFactory(new PropertyValueFactory<>("subTotal"));
+        if(!txtItemCost.getText().equals("")&& !txtIItemQty.getText().equals("") && !txtUnitPrice.getText().equals("")){
+            colCartItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
+            colCartItemName.setCellValueFactory(new PropertyValueFactory<>("name"));
+            colCartItemSize.setCellValueFactory(new PropertyValueFactory<>("size"));
+            colCartItemBrand.setCellValueFactory(new PropertyValueFactory<>("brand"));
+            colCartItemQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+            colCartItemDiscount.setCellValueFactory(new PropertyValueFactory<>("discount"));
+            colCartUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+            colCartSubTotal.setCellValueFactory(new PropertyValueFactory<>("subTotal"));
 
 
-        createCartTableItemList();
-        tblCart.setItems(cartTableItemList);
+            createCartTableItemList();
+            tblCart.setItems(cartTableItemList);
+        }
 
     }
 
@@ -188,6 +197,17 @@ public class PlaceOrderBasicWindowController implements Initializable {
         }else {
             cartItemsList.add(cartDetail);
         }
+
+        displayTotal();
+
+    }
+
+    private void displayTotal() {
+        double tot=0.00;
+        for(CartDetails detail:cartItemsList)tot+=detail.getSubTotal();
+        lblTotal.setText(Double.toString(tot));
+
+
     }
 
     @FXML
@@ -213,6 +233,12 @@ public class PlaceOrderBasicWindowController implements Initializable {
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
+
+        System.out.println("mama innawa");
+
+
+
+
 
     }
 
@@ -256,7 +282,7 @@ public class PlaceOrderBasicWindowController implements Initializable {
         loadPaymnetMethod();
         desableEditableAccess();
         setItemCategory();
-
+        desableOrderPlaceButton();
 
         cbmCategory.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             if(newValue!=null){
@@ -295,8 +321,30 @@ public class PlaceOrderBasicWindowController implements Initializable {
             }
         });
 
+        cmbPaymentMethod.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            if(newValue!=null){
+                try {
+                    lblOrderId.setText(new OrderManagementControll().getNewOrderId());
+                    enablePlaceOrderButton();
+                } catch (SQLException e) {
+                    new Alert(Alert.AlertType.ERROR,"can not load order Id").show();
+                }
+            }
+        });
 
 
+
+
+
+
+    }
+
+    private void desableOrderPlaceButton(){
+        btnPlaceOrder.setDisable(true);
+    }
+
+    private void enablePlaceOrderButton(){
+        btnPlaceOrder.setDisable(false);
     }
 
     private void redoItemData() {
