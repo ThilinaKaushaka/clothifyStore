@@ -1,0 +1,39 @@
+.log-in-text{
+    -fx-text-fill: 0b090c;
+}
+
+.btn-log-in{
+    -fx-background-color:735D78;
+    -fx-background-radius:22px;
+}
+
+
+.management-window{
+    -fx-background-color:;
+}
+
+
+.but{
+-fx-background-color:AB4459;
+
+
+    -fx-text-fill: white; /* Text color */
+    -fx-font-size: 13px;
+
+    -fx-font-weight:bold;
+
+
+
+}
+
+
+
+
+/* Optional: Add a hover effect */
+.but:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 7, 0, 0, 0);
+}
+
+.btn-search,.btn-add,.btn-delete,.btn-update,.btn-view-employee-report{
+    -fx-background-radius:20px;
+}

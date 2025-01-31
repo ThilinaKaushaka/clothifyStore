@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.adminNavigationButton.AdminNavigationButton">
+   <children>
+      <Rectangle fill="#c6a7a4" height="720.0" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" />
+      <JFXButton fx:id="btnStockManagement" alignment="CENTER_RIGHT" layoutY="3.0" onAction="#btnStockManagementOnAction" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: c6a7a4;" styleClass="but" stylesheets="@../../style/style.css" text="STOCK MANAGEMENT" textAlignment="CENTER" textFill="#ffedf1">
+         <font>
+            <Font name="SansSerif Bold" size="1.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnEmployeeManagement" alignment="CENTER_RIGHT" layoutY="61.0" onAction="#btnEmployeeManagementOnAction" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: c6a7a4;" styleClass="but" stylesheets="@../../style/style.css" text="EMPLOYEE MANAGEMENT" textFill="#ffedf1">
+         <font>
+            <Font name="SansSerif Bold" size="2.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnOrderManagement" alignment="CENTER_RIGHT" layoutY="119.0" onAction="#btnOrderManagementOnAction" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: c6a7a4;" styleClass="but" stylesheets="@../../style/style.css" text="ORDER MANAGEMENT" textAlignment="JUSTIFY" textFill="#ffedf1" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="SansSerif Bold" size="2.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnSellingReport" alignment="CENTER_RIGHT" layoutY="177.0" onAction="#btnSellingReportOnAction" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: c6a7a4;" styleClass="but" stylesheets="@../../style/style.css" text="SELLING REPORTS" textFill="#ffedf1">
+         <font>
+            <Font name="SansSerif Bold" size="2.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnPlaceOrder" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="235.0" onAction="#btnPlaceOrderOnAction" prefHeight="55.0" prefWidth="200.0" style="-fx-background-color: c6a7a4;" styleClass="but" stylesheets="@../../style/style.css" text="PLACE ORDER" textFill="#ffedf1">
+         <font>
+            <Font name="SansSerif Bold" size="2.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="14.0" layoutY="672.0" onAction="#btnLogOutOnAction" prefHeight="40.0" prefWidth="6.0" style="-fx-background-color: #e74c3c;" textFill="#e3dfe4">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" nodeOrientation="RIGHT_TO_LEFT">
+               <image>
+                  <Image url="@../../icon/icons8-log-in-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="icon" fitHeight="173.0" fitWidth="173.0" layoutX="23.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../image/489b2e1076ad1b8c680ff477b05f2110.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="11.0" layoutY="339.0" text="CLOTHIFY STORE" textAlignment="CENTER" textFill="#231942">
+         <font>
+            <Font name="Gadugi Bold" size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

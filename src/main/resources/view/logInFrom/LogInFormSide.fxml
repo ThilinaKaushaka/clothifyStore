@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.logInForm.logInFormSide.LogInFormSide">
+   <children>
+      <Rectangle fill="#b392ac" height="720.0" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" />
+      <Label layoutX="7.0" layoutY="220.0" text="CLOTHIFY STORE" textAlignment="CENTER" textFill="#ffedf1">
+         <font>
+            <Font name="Gadugi Bold" size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="212.0" fitWidth="200.0" layoutY="254.0">
+         <image>
+            <Image url="@../../image/489b2e1076ad1b8c680ff477b05f2110.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1081.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.employeeManagement.EmployeeManagementWindow">
+   <children>
+      <AnchorPane fx:id="pnlEmployeeManagementTop" prefHeight="40.0" prefWidth="1081.0" style="-fx-background-color: #f7d1cd;">
+         <children>
+            <JFXButton layoutX="6.0" prefHeight="40.0" prefWidth="131.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pnlEmployeeManagementMain" layoutY="40.0" prefHeight="680.0" prefWidth="1081.0" style="-fx-background-color: #f7d1cd;" stylesheets="@../../../style/style.css" />
+   </children>
+</AnchorPane>
