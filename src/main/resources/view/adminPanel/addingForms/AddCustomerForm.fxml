@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="302.0" prefWidth="657.0" style="-fx-background-color: debcb9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.addingFormController.customer.CustomerAddingFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="139.0" layoutY="14.0" text="Add Customer" textAlignment="CENTER" textFill="#231942">
+         <font>
+            <Font name="Arial Black" size="28.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.6297709941864014" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <Label layoutX="83.0" layoutY="114.0" text="Customer Id :-" textFill="#231942">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtId" editable="false" focusColor="#231942" layoutX="228.0" layoutY="98.0" prefHeight="36.0" prefWidth="184.0" unFocusColor="#231942">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="83.0" layoutY="154.0" text="Name :-" textFill="#231942">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtName" focusColor="#231942" layoutX="228.0" layoutY="138.0" prefHeight="36.0" prefWidth="184.0" unFocusColor="#231942">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="83.0" layoutY="193.0" text="Email:-" textFill="#231942">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtEmail" focusColor="#231942" layoutX="228.0" layoutY="177.0" prefHeight="36.0" prefWidth="184.0" unFocusColor="#231942">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="83.0" layoutY="229.0" text="Tp No:-" textFill="#231942">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtTpNo" focusColor="#231942" layoutX="228.0" layoutY="213.0" prefHeight="36.0" prefWidth="184.0" unFocusColor="#231942">
+         <font>
+            <Font name="Comic Sans MS Bold" size="17.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="445.0" layoutY="237.0" onAction="#btnCancelOnAction" style="-fx-background-color: #e74c3c;" text="CANCEL" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnAdd" layoutX="550.0" layoutY="237.0" onAction="#btnAddOnAction" prefHeight="39.0" prefWidth="93.0" style="-fx-background-color: #2ecc71;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="200.0" fitWidth="156.0" layoutX="474.0" layoutY="16.0">
+         <image>
+            <Image url="@../../../image/1ed8d20848d43d130566443cd892a740.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1081.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.basicWindow.BasicWindowController">
+    <children>
+        <AnchorPane fx:id="pnlPlaceOrderMain" prefHeight="720.0" prefWidth="1081.0" style="-fx-background-color: #f7d1cd;" stylesheets="@../../../style/style.css">
+         <children>
+            <ImageView fitHeight="411.0" fitWidth="401.0" layoutX="140.0" layoutY="141.0">
+               <image>
+                  <Image url="@../../image/3d2b48e40e3c3503f26617f24ee73982.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="499.0" fitWidth="464.0" layoutX="551.0" layoutY="85.0" opacity="0.19" smooth="false">
+               <image>
+                  <Image url="@../../image/489b2e1076ad1b8c680ff477b05f2110.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="612.0" layoutY="297.0" text="WELCOME" textAlignment="CENTER" textFill="#231942">
+               <font>
+                  <Font name="Arial Black" size="63.0" />
+               </font>
+               <effect>
+                  <DropShadow radius="15.8625" width="44.45">
+                     <color>
+                        <Color opacity="0.8299999833106995" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+            <Label alignment="CENTER" layoutX="612.0" layoutY="370.0" text="To Admin DashBord" textAlignment="CENTER" textFill="#231942">
+               <font>
+                  <Font name="Arial Black" size="17.0" />
+               </font>
+               <effect>
+                  <DropShadow radius="15.8625" width="44.45">
+                     <color>
+                        <Color opacity="0.8299999833106995" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Label>
+         </children></AnchorPane>
+    </children>
+</AnchorPane>
