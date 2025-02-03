@@ -11,5 +11,6 @@ import lombok.ToString;
 @ToString
 
 public class UserFind {
+    private String id;
     AccessLevel accessLevel;
 }

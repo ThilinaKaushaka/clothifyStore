@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,23 +18,6 @@
 
 <AnchorPane prefHeight="680.0" prefWidth="1081.0" style="-fx-background-color: debcb9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.stockManagement.stockManagementBasicWindow.StockManagementBasicWindowController">
     <children>
-        <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e8c2ca" height="379.0" layoutX="26.0" layoutY="273.0" stroke="TRANSPARENT" strokeType="INSIDE" width="473.0">
-            <effect>
-                <Glow>
-                    <input>
-                        <BoxBlur />
-                    </input>
-                </Glow>
-            </effect>
-        </Rectangle>
-        <TableView fx:id="tblBasicDetail" layoutX="58.0" layoutY="303.0" prefHeight="313.0" prefWidth="404.0">
-            <columns>
-                <TableColumn fx:id="colId" prefWidth="82.0" text="EMP_ID" />
-                <TableColumn fx:id="colName" prefWidth="102.0" text="NAME" />
-                <TableColumn fx:id="colPosition" prefWidth="115.0" text="POSITION" />
-                <TableColumn fx:id="colArrivalToDay" prefWidth="104.0" text="ARRIVAL TODAY " />
-            </columns>
-        </TableView>
         <Label alignment="CENTER" layoutX="767.0" layoutY="3.0" text="Item Details" textAlignment="CENTER" textFill="#231942" underline="true">
             <font>
                 <Font name="Consolas Bold" size="24.0" />
@@ -46,18 +30,9 @@
                 </DropShadow>
             </effect>
         </Label>
-        <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#e8c2ca" height="62.0" layoutX="634.0" layoutY="127.0" stroke="TRANSPARENT" strokeType="INSIDE" width="271.0">
-            <effect>
-                <Glow>
-                    <input>
-                        <BoxBlur />
-                    </input>
-                </Glow>
-            </effect>
-        </Rectangle>
-        <AnchorPane layoutX="634.0" layoutY="122.0" prefHeight="70.0" prefWidth="271.0">
+        <AnchorPane layoutX="614.0" layoutY="157.0" prefHeight="519.0" prefWidth="430.0">
             <children>
-                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#cf00006a" height="45.0" layoutX="192.0" layoutY="13.0" stroke="TRANSPARENT" strokeType="INSIDE" width="66.0">
+                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e8c2ca" height="508.0" layoutX="13.0" layoutY="3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="394.0">
                     <effect>
                         <Glow>
                             <input>
@@ -66,56 +41,195 @@
                         </Glow>
                     </effect>
                 </Rectangle>
-                <JFXButton fx:id="btnDelete" layoutX="193.0" layoutY="12.0" onAction="#btnDeleteOnAction" prefHeight="48.0" prefWidth="66.0" styleClass="btn-delete" stylesheets="@../../../../style/style.css">
-                    <graphic>
+                <Label layoutX="37.0" layoutY="15.0" text="Item Code  :-  " textFill="#231942">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="17.0" />
+                    </font>
+                </Label>
+                <Label layoutX="37.0" layoutY="56.0" text="Name  :- " textFill="#231942">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="17.0" />
+                    </font>
+                </Label>
+                <Label layoutX="37.0" layoutY="97.0" text="Category Id  :-  " textFill="#231942">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="17.0" />
+                    </font>
+                </Label>
+                <Label layoutX="37.0" layoutY="138.0" text="Category  :-  " textFill="#231942">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="17.0" />
+                    </font>
+                </Label>
+                <Label layoutX="37.0" layoutY="179.0" text="Brand  :-  " textFill="#231942">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="17.0" />
+                    </font>
+                </Label>
+                <Label layoutX="37.0" layoutY="220.0" text="Colour :-  " textFill="#231942">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="17.0" />
+                    </font>
+                </Label>
+                <JFXTextField fx:id="txtItemcode" focusColor="#231942" layoutX="174.0" layoutY="9.0" prefHeight="4.0" prefWidth="205.0" promptText="enter item code" unFocusColor="#231942">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="17.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="txtItemName" focusColor="#231942" layoutX="174.0" layoutY="50.0" prefHeight="4.0" prefWidth="205.0" promptText="enter name " unFocusColor="#231942">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="17.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="txtIBtand" focusColor="#231942" layoutX="174.0" layoutY="173.0" prefHeight="4.0" prefWidth="205.0" promptText="enter  brand" unFocusColor="#231942">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="17.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="txtColour" focusColor="#231942" layoutX="174.0" layoutY="214.0" prefHeight="4.0" prefWidth="205.0" promptText="enter colour" unFocusColor="#231942">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="17.0" />
+                    </font>
+                </JFXTextField>
+            <Label layoutX="37.0" layoutY="261.0" text="Size :-  " textFill="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtSize" focusColor="#231942" layoutX="174.0" layoutY="255.0" prefHeight="4.0" prefWidth="205.0" promptText="size" unFocusColor="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="37.0" layoutY="302.0" text="Discount :-  " textFill="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtDiscount" focusColor="#231942" layoutX="174.0" layoutY="296.0" prefHeight="4.0" prefWidth="205.0" promptText="discount" unFocusColor="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="37.0" layoutY="343.0" text="Price :-  " textFill="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtPrice" focusColor="#231942" layoutX="174.0" layoutY="337.0" prefHeight="4.0" prefWidth="205.0" promptText="enter price" unFocusColor="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="37.0" layoutY="383.0" text="QTY :-  " textFill="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtQty" focusColor="#231942" layoutX="174.0" layoutY="377.0" prefHeight="4.0" prefWidth="205.0" promptText="enter qty" unFocusColor="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="37.0" layoutY="424.0" text="Supplier Id :-  " textFill="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtSupplierId" focusColor="#231942" layoutX="174.0" layoutY="418.0" prefHeight="4.0" prefWidth="205.0" promptText="enter supplier id" unFocusColor="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="37.0" layoutY="465.0" text="Warehouse :-  " textFill="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtWareHouseId" focusColor="#231942" layoutX="174.0" layoutY="459.0" prefHeight="4.0" prefWidth="205.0" promptText="enter warehouse id" unFocusColor="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="252.0" layoutY="303.0" text="\%" textFill="#231942">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="cmbCategory" layoutX="174.0" layoutY="140.0" prefHeight="28.0" prefWidth="205.0" promptText="select category" />
+              <AnchorPane fx:id="pnlOption" layoutX="13.0" layoutY="-71.0" prefHeight="67.0" prefWidth="272.0">
+                  <children>
+                    <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#e8c2ca" height="62.0" layoutY="5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="271.0">
+                        <effect>
+                            <Glow>
+                                <input>
+                                    <BoxBlur />
+                                </input>
+                            </Glow>
+                        </effect>
+                    </Rectangle>
+                      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#cf00006a" height="45.0" layoutX="192.0" layoutY="13.0" stroke="TRANSPARENT" strokeType="INSIDE" width="66.0">
+                          <effect>
+                              <Glow>
+                                  <input>
+                                      <BoxBlur />
+                                  </input>
+                              </Glow>
+                          </effect>
+                      </Rectangle>
+                      <JFXButton fx:id="btnDelete" layoutX="193.0" layoutY="12.0" onAction="#btnDeleteOnAction" prefHeight="48.0" prefWidth="66.0" styleClass="btn-delete" stylesheets="@../../../../style/style.css">
+                          <graphic>
+                              <ImageView fitHeight="35.0" fitWidth="35.0">
+                                  <image>
+                                      <Image url="@../../../../icon/icons8-delete-100.png" />
+                                  </image>
+                              </ImageView>
+                          </graphic>
+                      </JFXButton>
+                      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#aedaeb" height="45.0" layoutX="101.0" layoutY="13.0" stroke="TRANSPARENT" strokeType="INSIDE" width="66.0">
+                          <effect>
+                              <Glow>
+                                  <input>
+                                      <BoxBlur />
+                                  </input>
+                              </Glow>
+                          </effect>
+                      </Rectangle>
+                      <JFXButton fx:id="btnUpdate" layoutX="102.0" layoutY="12.0" onAction="#btnUpdateOnAction" prefHeight="48.0" prefWidth="66.0" styleClass="btn-update" stylesheets="@../../../../style/style.css">
+                     <graphic>
                         <ImageView fitHeight="35.0" fitWidth="35.0">
-                            <image>
-                                <Image url="@../../../../icon/icons8-delete-100.png" />
-                            </image>
+                           <image>
+                              <Image url="@../../../../icon/icons8-edit-64.png" />
+                           </image>
                         </ImageView>
-                    </graphic>
-                </JFXButton>
-                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#edafb8" height="45.0" layoutX="101.0" layoutY="13.0" stroke="TRANSPARENT" strokeType="INSIDE" width="66.0">
-                    <effect>
-                        <Glow>
-                            <input>
-                                <BoxBlur />
-                            </input>
-                        </Glow>
-                    </effect>
-                </Rectangle>
-                <JFXButton fx:id="btnUpdate" layoutX="102.0" layoutY="12.0" onAction="#btnUpdateOnAction" prefHeight="48.0" prefWidth="66.0" styleClass="btn-update" stylesheets="@../../../../style/style.css">
-                    <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0">
-                            <image>
-                                <Image url="@../../../../icon/icons8-update-file-48.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </JFXButton>
-                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#edafb8" height="45.0" layoutX="14.0" layoutY="13.0" stroke="TRANSPARENT" strokeType="INSIDE" width="66.0">
-                    <effect>
-                        <Glow>
-                            <input>
-                                <BoxBlur />
-                            </input>
-                        </Glow>
-                    </effect>
-                </Rectangle>
-                <JFXButton layoutX="14.0" layoutY="11.0" onAction="#btnViewItemReportOnAction" prefHeight="48.0" prefWidth="66.0" styleClass="btn-view-employee-report" stylesheets="@../../../../style/style.css">
-                    <graphic>
-                        <ImageView fitHeight="35.0" fitWidth="35.0">
-                            <image>
-                                <Image url="@../../../../icon/icons8-report-96.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </JFXButton>
+                     </graphic>
+                      </JFXButton>
+                      <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#edafb8" height="45.0" layoutX="14.0" layoutY="13.0" stroke="TRANSPARENT" strokeType="INSIDE" width="66.0">
+                          <effect>
+                              <Glow>
+                                  <input>
+                                      <BoxBlur />
+                                  </input>
+                              </Glow>
+                          </effect>
+                      </Rectangle>
+                      <JFXButton layoutX="13.0" layoutY="11.0" onAction="#btnViewItemReportOnAction" prefHeight="48.0" prefWidth="66.0" styleClass="btn-view-employee-report" stylesheets="@../../../../style/style.css">
+                          <graphic>
+                              <ImageView fitHeight="35.0" fitWidth="35.0">
+                                  <image>
+                                      <Image url="@../../../../icon/icons8-report-96.png" />
+                                  </image>
+                              </ImageView>
+                          </graphic>
+                      </JFXButton>
+                  </children>
+              </AnchorPane>
+            <JFXComboBox fx:id="cmbCategoryID" layoutX="174.0" layoutY="98.0" prefHeight="28.0" prefWidth="205.0" promptText="select category id" />
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="622.0" layoutY="210.0" prefHeight="307.0" prefWidth="430.0">
+        <AnchorPane layoutX="613.0" layoutY="23.0" prefHeight="72.0" prefWidth="430.0">
             <children>
-                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e8c2ca" height="286.0" layoutX="13.0" layoutY="7.0" stroke="TRANSPARENT" strokeType="INSIDE" width="404.0">
+                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e8c2ca" height="45.0" layoutX="13.0" layoutY="14.0" stroke="TRANSPARENT" strokeType="INSIDE" width="238.0">
                     <effect>
                         <Glow>
                             <input>
@@ -124,85 +238,12 @@
                         </Glow>
                     </effect>
                 </Rectangle>
-                <Label layoutX="52.0" layoutY="29.0" text="Item Code  :-  " textFill="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </Label>
-                <Label layoutX="52.0" layoutY="70.0" text="Category  :- " textFill="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </Label>
-                <Label layoutX="52.0" layoutY="111.0" text="Name  :-  " textFill="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </Label>
-                <Label layoutX="52.0" layoutY="152.0" text="Discount  :-  " textFill="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </Label>
-                <Label layoutX="52.0" layoutY="193.0" text="Price  :-  " textFill="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </Label>
-                <Label layoutX="52.0" layoutY="234.0" text="Availability :-  " textFill="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </Label>
-                <JFXTextField fx:id="txtId" focusColor="#231942" layoutX="189.0" layoutY="23.0" prefHeight="4.0" prefWidth="205.0" promptText="id" unFocusColor="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </JFXTextField>
-                <JFXTextField fx:id="txtTitle" focusColor="#231942" layoutX="189.0" layoutY="64.0" prefHeight="4.0" prefWidth="205.0" promptText="id" unFocusColor="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </JFXTextField>
-                <JFXTextField fx:id="txtName" focusColor="#231942" layoutX="189.0" layoutY="105.0" prefHeight="4.0" prefWidth="205.0" promptText="id" unFocusColor="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </JFXTextField>
-                <JFXTextField fx:id="txtAddress" focusColor="#231942" layoutX="189.0" layoutY="146.0" prefHeight="4.0" prefWidth="205.0" promptText="id" unFocusColor="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </JFXTextField>
-                <JFXTextField fx:id="txtPosition" focusColor="#231942" layoutX="189.0" layoutY="187.0" prefHeight="4.0" prefWidth="205.0" promptText="id" unFocusColor="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </JFXTextField>
-                <JFXTextField fx:id="txtSalary" focusColor="#231942" layoutX="189.0" layoutY="228.0" prefHeight="4.0" prefWidth="205.0" unFocusColor="#231942">
-                    <font>
-                        <Font name="Comic Sans MS Bold" size="17.0" />
-                    </font>
-                </JFXTextField>
-            </children>
-        </AnchorPane>
-        <AnchorPane layoutX="622.0" layoutY="48.0" prefHeight="72.0" prefWidth="430.0">
-            <children>
-                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e8c2ca" height="45.0" layoutX="13.0" layoutY="14.0" stroke="TRANSPARENT" strokeType="INSIDE" width="254.0">
-                    <effect>
-                        <Glow>
-                            <input>
-                                <BoxBlur />
-                            </input>
-                        </Glow>
-                    </effect>
-                </Rectangle>
-                <JFXTextField fx:id="txtSearchId" focusColor="#21184000" layoutX="35.0" layoutY="21.0" prefHeight="32.0" prefWidth="225.0" promptText="item code" unFocusColor="#21184000">
+                <JFXTextField fx:id="txtSearchId" focusColor="#21184000" layoutX="35.0" layoutY="21.0" prefHeight="32.0" prefWidth="205.0" promptText="item code" unFocusColor="#21184000">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </JFXTextField>
-                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#edafb8" height="45.0" layoutX="274.0" layoutY="14.0" stroke="TRANSPARENT" strokeType="INSIDE" width="66.0">
+                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#edafb8" height="45.0" layoutX="260.0" layoutY="14.0" stroke="TRANSPARENT" strokeType="INSIDE" width="66.0">
                     <effect>
                         <Glow>
                             <input>
@@ -211,7 +252,7 @@
                         </Glow>
                     </effect>
                 </Rectangle>
-                <JFXButton fx:id="btnSearchDetails" layoutX="276.0" layoutY="14.0" onAction="#btnSearchDetailsOnAction" prefHeight="48.0" prefWidth="66.0" styleClass="btn-search" stylesheets="@../../../../style/style.css">
+                <JFXButton fx:id="btnSearchDetails" layoutX="261.0" layoutY="14.0" onAction="#btnSearchDetailsOnAction" prefHeight="48.0" prefWidth="66.0" styleClass="btn-search" stylesheets="@../../../../style/style.css">
                     <graphic>
                         <ImageView fitHeight="35.0" fitWidth="35.0" nodeOrientation="RIGHT_TO_LEFT">
                             <image>
@@ -220,7 +261,7 @@
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#edafb8" height="45.0" layoutX="350.0" layoutY="14.0" stroke="TRANSPARENT" strokeType="INSIDE" width="66.0">
+                <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#edafb8" height="45.0" layoutX="336.0" layoutY="14.0" stroke="TRANSPARENT" strokeType="INSIDE" width="66.0">
                     <effect>
                         <Glow>
                             <input>
@@ -229,7 +270,7 @@
                         </Glow>
                     </effect>
                 </Rectangle>
-                <JFXButton fx:id="btnAdd" layoutX="348.0" layoutY="14.0" onAction="#btnAddOnAction" prefHeight="48.0" prefWidth="66.0" styleClass="btn-add" stylesheets="@../../../../style/style.css">
+                <JFXButton fx:id="btnAdd" layoutX="333.0" layoutY="14.0" onAction="#btnAddOnAction" prefHeight="48.0" prefWidth="66.0" styleClass="btn-add" stylesheets="@../../../../style/style.css">
                     <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0">
                             <image>
@@ -257,5 +298,68 @@
                 </DropShadow>
             </effect>
         </Label>
+      <AnchorPane layoutX="20.0" layoutY="243.0" prefHeight="426.0" prefWidth="577.0">
+         <children>
+            <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e8c2ca" height="398.0" layoutX="7.0" layoutY="12.0" stroke="TRANSPARENT" strokeType="INSIDE" width="560.0">
+               <effect>
+                  <Glow>
+                     <input>
+                        <BoxBlur />
+                     </input>
+                  </Glow>
+               </effect>
+            </Rectangle>
+            <TableView fx:id="tblBasicDetail" layoutX="27.0" layoutY="33.0" prefHeight="357.0" prefWidth="520.0">
+               <columns>
+                  <TableColumn fx:id="colCode" prefWidth="78.0" text="ITEM CODE" />
+                  <TableColumn fx:id="colName" prefWidth="90.0" text="NAME" />
+                  <TableColumn fx:id="colCategory" prefWidth="88.0" text="CATEGORY" />
+                  <TableColumn fx:id="colQty" prefWidth="72.0" text="QTY" />
+                  <TableColumn fx:id="colDiscount" prefWidth="89.0" text="DISCOUNT" />
+                  <TableColumn fx:id="colUnitPrice" prefWidth="104.0" text="UNIT PRICE" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pnlConformBox" layoutX="897.0" layoutY="98.0" prefHeight="48.0" prefWidth="140.0">
+         <children>
+            <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#bfebae" height="36.0" layoutX="72.0" layoutY="7.0" stroke="TRANSPARENT" strokeType="INSIDE" width="53.0">
+               <effect>
+                  <Glow>
+                     <input>
+                        <BoxBlur />
+                     </input>
+                  </Glow>
+               </effect>
+            </Rectangle>
+            <JFXButton fx:id="btnConform" layoutX="72.0" layoutY="9.0" onAction="#btnConformOnAction" prefHeight="33.0" prefWidth="53.0" styleClass="btn-search" stylesheets="@../../../../style/style.css">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0">
+                     <image>
+                        <Image url="@../../../../icon/icons8-check-mark-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Rectangle arcHeight="40.0" arcWidth="40.0" fill="#e49b9b" height="36.0" layoutX="6.0" layoutY="7.0" stroke="TRANSPARENT" strokeType="INSIDE" width="53.0">
+               <effect>
+                  <Glow>
+                     <input>
+                        <BoxBlur />
+                     </input>
+                  </Glow>
+               </effect>
+            </Rectangle>
+            <JFXButton fx:id="btnCancel_" layoutX="7.0" layoutY="7.0" onAction="#btnCancelOnAction" prefHeight="36.0" prefWidth="53.0" styleClass="btn-search" stylesheets="@../../../../style/style.css">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0">
+                     <image>
+                        <Image url="@../../../../icon/icons8-cancel-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

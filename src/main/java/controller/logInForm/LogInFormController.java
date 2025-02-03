@@ -3,6 +3,8 @@ package controller.logInForm;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import controller.admin.adminNavigationButton.AdminNavigationButton;
+import controller.admin.basicWindow.BasicWindowController;
 import controller.mainWindow.MainWindow;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,18 +54,19 @@ public class LogInFormController implements Initializable {
 
     public void btnLogInOnAction(ActionEvent actionEvent) {
 
-        loadAdminWindow();
+
 
         boolean validEmail=isValidEmail();
 
         if (validEmail && !txtPassword.getText().equals("")){
             try {
                 UserFind userFind=new LogInController().LogIn(new UserLogIn(txtEmail.getText(),txtPassword.getText()));
-
+                System.out.println(userFind);
                 if (userFind!=null){
                     switch (userFind.getAccessLevel()){
                         case ADMIN:
-                            loadAdminWindow();
+                            loadAdminWindow(userFind.getId());
+                            new BasicWindowController().loadBasicWindow();
 
                             break;
 
@@ -89,17 +92,18 @@ public class LogInFormController implements Initializable {
 
 
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                new Alert(Alert.AlertType.ERROR,"can not find user").show();
             }
         }
 
     }
 
-    private void loadAdminWindow(){
-        loadAdminNavigationButton();
+    private void loadAdminWindow(String id){
+        loadAdminNavigationButton(id);
+        new BasicWindowController().loadBasicWindow();
     }
 
-    private void loadAdminNavigationButton(){
+    private void loadAdminNavigationButton(String id){
         URL resource=this.getClass().getResource("/view/adminPanel/adminNavigationButton.fxml");
         assert resource !=null;
 
@@ -108,6 +112,9 @@ public class LogInFormController implements Initializable {
             MainWindow.sidePanel.getChildren().clear();
             MainWindow.sidePanel.getChildren().add(load);
             Starter.mainWindow.setTitle("Administrator Panel");
+
+            AdminNavigationButton.employeeIdLabel.setText(id);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

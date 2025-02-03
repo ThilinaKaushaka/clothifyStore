@@ -3,9 +3,13 @@ package controller.admin.placeOrder.placeOrderBasicWindow;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import controller.admin.adminNavigationButton.AdminNavigationButton;
 import controller.admin.orderManagement.orderManagementBasicWindow.OrderManagementControll;
 import controller.admin.placeOrder.PlaceOrderWindowController;
 import controller.admin.stockManagement.stockManagementBasicWindow.StockManagementControll;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,24 +17,35 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.customer.CustomerBasicDetails;
+import model.item.ItemDetails;
 import model.item.ItemDetailsByItemCode;
 import model.item.ItemDetailsByMiniTable;
 import model.item.ItemDetailsBySize;
 import model.order.CartDetails;
+import model.order.Order;
+import model.order.OrderDetails;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PlaceOrderBasicWindowController implements Initializable {
@@ -148,10 +163,56 @@ public class PlaceOrderBasicWindowController implements Initializable {
     @FXML
     private Label lblOrderIdTitle;
 
+    @FXML
+    private Label lblDate;
+
+    @FXML
+    private Label lblTime;
+
+    @FXML
+    private JFXButton btnRefresh;
+
+    @FXML
+    void btnRefreshOnAction(ActionEvent event) {
+        loadPlaceOrderBasicWindow();
+    }
+
+    public static Stage addCustomerForm;
 
     @FXML
     void btnAddCustomerOnAction(ActionEvent event) {
+        Stage stage=new Stage();
+        addCustomerForm=stage;
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/adminPanel/addingForms/AddCustomerForm.fxml"))));
+            stage.show();
+            stage.setTitle("Add Customer Form");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+    }
+
+    private void setDateAndTime(){
+
+        //-----------------DATE-------------------------
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String format = simpleDateFormat.format(date);
+        lblDate.setText(format);
+
+        //----------------TIME------------------
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.ZERO,e->{
+                    LocalTime now=LocalTime.now();
+                    lblTime.setText(now.getHour()+":"+now.getMinute()+":"+now.getSecond());
+                    now.getSecond();
+                }),
+                new KeyFrame(Duration.seconds(1))
+        );
+
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
 
     private List<CartDetails> cartItemsList=new ArrayList<>();
@@ -172,6 +233,7 @@ public class PlaceOrderBasicWindowController implements Initializable {
 
             createCartTableItemList();
             tblCart.setItems(cartTableItemList);
+            btnRefresh.setVisible(true);
         }
 
     }
@@ -228,16 +290,41 @@ public class PlaceOrderBasicWindowController implements Initializable {
 
     @FXML
     void btnItemIdSearchOnAction(ActionEvent event) {
+        if(Pattern.compile("[item ITEM][0-9]+$").matcher(txtItemIdSearch.getText()).find()){
+            try {
+                ItemDetails itemDetails=new StockManagementControll().getItemDetailsToSearchId(txtItemIdSearch.getText());
+                if (itemDetails!=null){
+                    cbmCategory.setValue(itemDetails.getCategoryName());
+                    cmbItemCode.setValue(itemDetails.getItemId());
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
 
     }
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
 
-        System.out.println("mama innawa");
+        if(!cartItemsList.isEmpty()){
+            List<OrderDetails>orderDetailsList=new ArrayList<>();
+            cartItemsList.forEach(cartDetails -> { orderDetailsList.add(new OrderDetails(lblOrderId.getText(), cartDetails.getItemCode(), cartDetails.getQty(), cartDetails.getUnitPrice(), cartDetails.getDiscount()));});
 
+            try {
+                if(new PlaceOrderBasicControll().placeOrder (new Order( lblOrderId.getText(),txtCustomerId.getText().equals("")?null:txtCustomerId.getText(), Double.parseDouble(lblTotal.getText()), cmbPaymentMethod.getValue().toString(), lblDate.getText(), lblTime.getText(), AdminNavigationButton.employeeIdLabel.getText(), orderDetailsList))){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Order Place").show();
+                    new PlaceOrderBasicWindowController().loadPlaceOrderBasicWindow();
 
+                }else {
+                    new Alert(Alert.AlertType.ERROR,"try again").show();
+                }
 
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,"can not connect database").show();
+            }
+        }
 
 
     }
@@ -283,6 +370,7 @@ public class PlaceOrderBasicWindowController implements Initializable {
         desableEditableAccess();
         setItemCategory();
         desableOrderPlaceButton();
+        setDateAndTime();
 
         cbmCategory.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             if(newValue!=null){
@@ -333,7 +421,7 @@ public class PlaceOrderBasicWindowController implements Initializable {
         });
 
 
-
+        btnRefresh.setVisible(false);
 
 
 
