@@ -274,7 +274,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 
-- 📧 Email: your.email@example.com
+
 - 🐛 Issues: [GitHub Issues](https://github.com/ThilinaKaushaka/clothifyStore/issues)
 - 💬 Discussions: [GitHub Discussions](https://github.com/ThilinaKaushaka/clothifyStore/discussions)
 
