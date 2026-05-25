@@ -70,6 +70,7 @@ Clothify Store is a robust retail management solution built to streamline operat
 - **Java** - Core programming language
 - **MySQL** - Database management
 - **Hibernate** - ORM framework (if applicable)
+- **JDBC transactions**
 
 ### Frontend
 - **JavaFX** - User interface framework
